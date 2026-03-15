@@ -1,0 +1,219 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-body text-background-dark bg-background-light antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-primary;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  p {
+    @apply text-base md:text-lg leading-relaxed;
+  }
+  
+  a {
+    @apply transition-colors duration-300;
+  }
+  
+  button {
+    @apply transition-all duration-300;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-glass rounded-glass shadow-glass border border-white/20;
+  }
+  
+  .glass-card-hover {
+    @apply glass-card hover:shadow-glass-sm hover:scale-[1.02] transition-all duration-300;
+  }
+  
+  /* Primary Button */
+  .btn-primary {
+    @apply px-6 py-3 bg-primary text-white font-medium rounded-lg
+           hover:bg-primary-600 active:bg-primary-700
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+  
+  /* Secondary Button */
+  .btn-secondary {
+    @apply px-6 py-3 bg-secondary text-white font-medium rounded-lg
+           hover:bg-secondary-600 active:bg-secondary-700
+           focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2
+           transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+  
+  /* Accent Button */
+  .btn-accent {
+    @apply px-6 py-3 bg-accent text-primary font-medium rounded-lg
+           hover:bg-accent-400 active:bg-accent-500
+           focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2
+           transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+  
+  /* Outline Button */
+  .btn-outline {
+    @apply px-6 py-3 border-2 border-primary text-primary font-medium rounded-lg
+           hover:bg-primary hover:text-white
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           transition-all duration-300;
+  }
+  
+  /* Input Fields */
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border border-gray-300 rounded-lg
+           focus:border-primary focus:ring-2 focus:ring-primary-200 focus:outline-none
+           transition-all duration-300 placeholder-gray-400;
+  }
+  
+  /* Modern Card */
+  .card-modern {
+    @apply bg-white rounded-xl shadow-card overflow-hidden
+           hover:shadow-premium transition-all duration-300;
+  }
+  
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-primary {
+    @apply badge bg-primary/10 text-primary;
+  }
+  
+  .badge-accent {
+    @apply badge bg-accent/20 text-accent-600;
+  }
+  
+  .badge-success {
+    @apply badge bg-green-100 text-green-700;
+  }
+  
+  /* Section */
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  /* Text Gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-primary-600 bg-clip-text text-transparent;
+  }
+  
+  /* Background Patterns */
+  .bg-pattern {
+    background-image: 
+      radial-gradient(circle at 25px 25px, rgba(0, 33, 71, 0.03) 2px, transparent 0),
+      radial-gradient(circle at 75px 75px, rgba(0, 33, 71, 0.03) 2px, transparent 0);
+    background-size: 100px 100px;
+  }
+  
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full hover:bg-primary/50 transition-colors;
+  }
+  
+  /* Hide Scrollbar */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Animation Delays */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+/* Toast Styles Override */
+.Toastify__toast-container {
+  z-index: 9999;
+}
+
+.Toastify__toast {
+  @apply rounded-lg shadow-lg;
+}
+
+.Toastify__toast--success {
+  @apply bg-green-600;
+}
+
+.Toastify__toast--error {
+  @apply bg-red-600;
+}
+
+.Toastify__toast--warning {
+  @apply bg-yellow-500;
+}
+
+.Toastify__toast--info {
+  @apply bg-primary;
+}
